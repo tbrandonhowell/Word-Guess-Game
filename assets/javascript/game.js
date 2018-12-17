@@ -2,30 +2,24 @@ window.onload = function() {
 
 // Create the list of answers
 var transformers = [
-"Megatron",
-"Optimus Prime",
-"Shockwave",
-"Bumblebee",
-"Ironhide",
-"Starscream",
-"Wheeljack",
-"Prowl",
-"Ultra Magnus",
-"Arcee",
-"Powerglide",
-"Omega Supreme",
-"Grimlock",
-"Wreck-Gar",
-"Soundwave",
-"Skywarp",
-"Thundercracker",
-"Cyclonus",
-"Unicron",
-"Scourge",
-"Galvatron",
-"Blitzwing",
-"Triggerhappy",
-"Slugslinger"
+    ["Megatron","Die, Autobots!","https://cdn1us.denofgeek.com/sites/denofgeekus/files/styles/main_wide/public/transformers-main.jpeg?itok=uirXM5Fw"],
+    ["Optimus Prime","Freedom is the right of all sentient beings.","https://www.comingsoon.net/assets/uploads/2018/08/Transformers_The_Movie_-_Optimus_Prime.jpg"],
+    ["Springer","I've got better things to do tonight than die!","https://2.bp.blogspot.com/-z2pEnf9F6HM/WHOK99BJwTI/AAAAAAAActQ/j-4jZ07xJMckpCjjIpLdBMbIs8-RHVOtgCK4B/s320/2.jpg"],
+    ["Shockwave","Decepticons, we're under attack! Scramble!","http://1.bp.blogspot.com/-flFXZwk_jsI/URYdyPMjIuI/AAAAAAAAAUE/qjO8WDhRXYM/s1600/PDVD_037.BMP"],
+    ["Starscream","Pathetic Fools! There's no escape!","http://www.cornel1801.com/animated/Transformers-The-Movie-1986/pictures/35.jpg"],
+    ["Ultra Magnus","I can't deal with that right now.","https://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/ultra-magnus-transformers-1.23.jpg"],
+    ["Arcee","Then you probably didn't understand the situation.","http://bwtf.com/toyreview-images/generations/arcee/cartoon-blaster.jpg"],
+    ["Grimlock","Me Grimlock not \"nice dino\". Me mash brains!","http://tfarchive.com/fandom/features/thirtieth-anniversary/thirty-greatest-characters/characters/06_Grimlock_2.jpg"],
+    ["Wreck-Gar","Offer expires while you wait, operators are standing by.","http://www.cornel1801.com/animated/Transformers-The-Movie-1986/pictures/75.jpg"],
+    ["Soundwave","As you command, Megatron.","https://tfwiki.net/mediawiki/images2/thumb/b/b6/Soundwave_and_company.jpg/350px-Soundwave_and_company.jpg"],
+    ["Cyclonus","You want me to gut Ultra Magnus?","https://tfwiki.net/mediawiki/images2/thumb/5/50/Cyclonus_toon.jpg/244px-Cyclonus_toon.jpg"],
+    ["Unicron","For a time, I considered sparing your wretched little planet.","https://img.purch.com/o/aHR0cDovL3d3dy5uZXdzYXJhbWEuY29tL2ltYWdlcy9pLzAwMC8yMDMvOTI0L2kwMi9Vbmljcm9uLmpwZw=="],
+    ["Galvatron","I'll rip open Ultra Magnus, and every other Autobot, until the Matrix has been destroyed!","http://basementrejects.com/wp-content/uploads/2013/03/transformers-the-movie-galvatron-versus-hot-rod.jpg"],
+    ["Perceptor","Ultra Magnus, a cursory evaluation of Decepticon capability indicates a distinct tactical deficiency!","https://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/perceptor-transformers-the-movie-2.93.jpg"],
+    ["Kup","Experience, lad. You should learn to appreciate it.","https://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kup-transformers-the-movie-4.96.jpg"],
+    ["Hot Rod","Hey, I wasn't worried for a microsecond.","https://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/hot-rod-transformers-the-movie-4.98.jpg"],
+    ["Ratchet",".....","https://images.vice.com/vice/images/articles/meta/2015/03/11/the-transformers-the-movie-death-mike-diver-1426088093.jpg"],
+    ["Blaster","Optimus Prime, do you read me? The Decepticons are blitzing Autobot City, we're really taking a pounding. Don't know how much longer we can hold out.","http://1.bp.blogspot.com/-OfZPZrpVijE/U8Yy_iIeQFI/AAAAAAAAAZA/PHD4oyzZLu0/s1600/PDVD_000.BMP"]
 ];
 
 // logging ------------------- logging 
@@ -72,7 +66,7 @@ function newRound() {
     gameArray = []; //reset gameArray
     guessesLeft = guessesAllowed; // reset guessesLeft
     ranNum = Math.floor(Math.random() * (+max - +min)) + +min; // select our random number
-    answer = transformers[ranNum]; // set our answer using the random number referenced against our name array
+    answer = transformers[ranNum][0]; // set our answer using the random number referenced against our name array
     answerArray = (answer.toUpperCase().split("")); // explode the answer into an array
     // fill the gameArray with underscores, except for spaces
     for(n=0;n<answerArray.length;n++) {
@@ -149,7 +143,7 @@ document.onkeyup = function(event) {
         console.log("Game over. You lost.");
         losses = losses + 1;
         lastAnswer = answer;
-        document.getElementById("botName").innerHTML = answer;
+        // document.getElementById("botName").innerHTML = answer;
         newRound(); // reset for the next round
         updateStats();
         alert("Sorry, you guessed too many incorrect letters. The answer was \"" + lastAnswer + "\".");
@@ -161,8 +155,8 @@ document.onkeyup = function(event) {
         document.getElementById("wins").innerHTML = wins; // ??? is this redundant?
         document.getElementById("botName").innerHTML = answer;
         // document.getElementById("botFaction").innerHTML = 
-        // document.getElementById("botImage").innerHTML = 
-        // document.getElementById("botQuote").innerHTML = 
+        document.getElementById("botImage").innerHTML = "<img src=\"" + transformers[ranNum][2] + "\">";
+        document.getElementById("botQuote").innerHTML = "\"" + transformers[ranNum][1] + "\"";
         newRound(); // reset for the next round
         updateStats(); 
         alert("Congrats! You correctly guessed \"" + lastAnswer +"\"!");
