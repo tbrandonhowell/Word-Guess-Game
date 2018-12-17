@@ -5,30 +5,42 @@
         <script src="assets/javascript/game.js"></script>
     </head>
     <body>
-        <h1>Transformers</h1>
-        <h2>Hangbot</h2>
+        <div style="width: 80%">
 
-        Press any key to get started!
+        <div style="width: 100%">
+            <h1>Transformers: Hangbot</h1>
+        <!-- <h2>Hangbot</h2> -->
+        Press any letter key to get started!
+        </div>
 
+        <div style="width: 35%; float:left; border: 1px solid #000000; padding: 20px;">
         <h3>Stats</h3>
         <p>Guesses Remaining: <span id="remaining"></span></p>
-        <p>Wins: <span id="wins"></span></p>
-        <p>Losses: <span id="losses"></span></p>
+        <h3>Wrong Letters Guessed:</h3>
+        <h4 id="badguess"></h4>
+    </div>
 
-        <h3>Current Word</h3>
+    <div style="width: 55%; float:left; border: 1px solid #000000; padding: 20px;">
+        <h3>Current Word:</h3>
         <h4 id="answer" style="letter-spacing: 10px;">
 
         </h4>
+        </div>
 
-        <h3>Letters Guessed</h3>
-        <h4 id="badguess"></h4>
+            <div style="width: 35%; float:left; border: 1px solid #000000; padding: 20px; clear: both;">
+                    <p>Wins: <span id="wins"></span></p>
+                    <p>Losses: <span id="losses"></span></p>
+        </div>
         
+        <div style="width: 55%; float:left; border: 1px solid #000000; padding: 20px;">
         <h3>Last Game:</h3>
         <p>Name: <span id="botName"></span></p>
-        <p>Faction: <span id="botFaction"></span></p>
+        <!-- <p>Faction: <span id="botFaction"></span></p>
         <p>Image: <span id="botImage"></span></p>
-        <p>Quote: <span id="botQuote"></span></p>
+        <p>Quote: <span id="botQuote"></span></p> -->
+        </div>
         
+        </div>
 
     </body>
 </html>
