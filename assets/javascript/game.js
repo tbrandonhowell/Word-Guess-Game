@@ -155,7 +155,7 @@ document.onkeyup = function(event) {
         document.getElementById("wins").innerHTML = wins; // ??? is this redundant?
         document.getElementById("botName").innerHTML = answer;
         // document.getElementById("botFaction").innerHTML = 
-        document.getElementById("botImage").innerHTML = "<img src=\"" + transformers[ranNum][2] + "\">";
+        document.getElementById("botImage").innerHTML = "<img src=\"" + transformers[ranNum][2] + "\" class=\"img-fluid\">";
         document.getElementById("botQuote").innerHTML = "\"" + transformers[ranNum][1] + "\"";
         newRound(); // reset for the next round
         updateStats(); 

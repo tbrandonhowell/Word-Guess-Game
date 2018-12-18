@@ -1,0 +1,13 @@
+html { 
+    background: url(assets/images/movie11.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+#subheading1 {
+    font-family: 'Bungee Inline', cursive;
+}
+#subheading2 {
+    font-family: 'Monoton', cursive;
+}

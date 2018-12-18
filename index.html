@@ -1,46 +1,70 @@
 <!doctype html>
 <html>
+
     <head>
-        <title>Transformers Hangman</title>
+        <title>Transformers Hangbot</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="assets/javascript/game.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Bungee+Inline" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+        <link href="assets/css/style.css" rel="stylesheet">
     </head>
+
     <body>
-        <div style="width: 80%">
 
-        <div style="width: 100%">
-            <h1>Transformers: Hangbot</h1>
-        <!-- <h2>Hangbot</h2> -->
-        Press any letter key to get started!
-        </div>
+        <div id="mainDiv" class="container-fluid">
 
-        <div style="width: 35%; float:left; border: 1px solid #000000; padding: 20px;">
-        <h3>Stats</h3>
-        <p>Guesses Remaining: <span id="remaining"></span></p>
-        <h3>Wrong Letters Guessed:</h3>
-        <h4 id="badguess"></h4>
-    </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <!-- <img src="assets/images/tf-logo-2.jpg" class="mx-auto" style="max-width:400px;"> -->
+                    <h1><span id="subheading1">Hangbot:</span> <span id="subheading2">1986</span></h1>
+                </div>
+            </div>
 
-    <div style="width: 55%; float:left; border: 1px solid #000000; padding: 20px;">
-        <h3>Current Word:</h3>
-        <h4 id="answer" style="letter-spacing: 10px;">
+            <div class="row">
+                <div class="col-md-1"><!-- Empty For Layout --></div>
+                <div class="col-md-3 border p-4 mb-3"> <!-- Last Wins Content -->
+                    <h3 class="">Your Last Win:</h3>
+                    <h4><span id="botName"></span></h4>
+                    <!-- <p>Faction: <span id="botFaction"></span></p> -->
+                    <p><span id="botQuote"></span></p>
+                    <span id="botImage"></span>
+                </div>
+                <div class="col-md-7"> <!-- Active Game Content -->
+                    <div class="container-fluid">
+                        <div class="row mb-3">
+                            <div class="col-md-12 border p-4"> <!-- Blanks -->
+                                <h3 class="">Guess the Transformer!</h3>
+                                <p>Press any letter key to get started!</p>
+                                <h1 id="answer" style="letter-spacing: 10px;"></h4>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-4 border p-4"> <!-- # Guesses Left -->
+                                <h4>Guesses Left:</h4> 
+                                <p><span id="remaining"></span></p>
+                            </div>
+                            <div class="col-md-8 border p-4"> <!-- Wrong Letters -->
+                                <h4>Wrong Letters:</h4>
+                                <h4 id="badguess"></h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 border p-4"> <!-- Wins Count -->
+                                <h4>Wins: <span id="wins"></span></h4> 
+                            </div>
+                            <div class="col-md-6 border p-4"> <!-- Losses Count -->
+                                <h4>Losses: <span id="losses"></span></h4>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-md-1"><!-- Empty For Layout --></div>
+            </div>
 
-        </h4>
-        </div>
-
-            <div style="width: 35%; float:left; border: 1px solid #000000; padding: 20px; clear: both;">
-                    <p>Wins: <span id="wins"></span></p>
-                    <p>Losses: <span id="losses"></span></p>
-        </div>
-        
-        <div style="width: 55%; float:left; border: 1px solid #000000; padding: 20px;">
-        <h3>Last Win:</h3>
-        <p>Name: <span id="botName"></span></p>
-        <!-- <p>Faction: <span id="botFaction"></span></p> -->
-        <p>Quote: <span id="botQuote"></span></p>
-        <p>Image: <span id="botImage"></span></p>
-        </div>
-        
-        </div>
+        </div> <!-- close container -->
 
     </body>
 </html>
