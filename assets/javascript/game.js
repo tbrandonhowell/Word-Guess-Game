@@ -1,5 +1,7 @@
 window.onload = function() {
 
+
+
 // Create the list of answers
 var transformers = [
     ["Megatron","Die, Autobots!","https://cdn1us.denofgeek.com/sites/denofgeekus/files/styles/main_wide/public/transformers-main.jpeg?itok=uirXM5Fw"],
@@ -96,11 +98,18 @@ console.log(answerArray);
 console.log(gameArray);
 // logging ------------------- logging 
 
+
 // look for the key press
 document.onkeyup = function(event) {
 	var keyPressed = event.key.toUpperCase();
-	console.log("Key Press: " + keyPressed);
-    if(badGuess.includes(keyPressed)){ // if the letter selected has already been picked once and is not part of the answer
+    console.log("Key Press: " + keyPressed);
+    if( ($("#winnerModal").data('bs.modal') || {})._isShown === true || ($("#loserModal").data('bs.modal') || {})._isShown === true ) { // if the win/lose modal is live, use the keypress to clear the modal before accepting more input
+        console.log("modal is live");
+        $("#winnerModal").modal("hide");
+        $("#loserModal").modal("hide");
+        // stop. do nothing
+    }
+    else if(badGuess.includes(keyPressed)){ // if the letter selected has already been picked once and is not part of the answer
         console.log("Already in badGuess");
         // stop. do nothing.
     } else {
@@ -117,8 +126,10 @@ document.onkeyup = function(event) {
             }
         }
         if(!rightAnswer) { // if not a correct guess
-            guessesLeft = guessesLeft - 1; // decrement the guess counter 
-            badGuess.push(keyPressed); // add entry to badGuess
+            if (keyPressed.match(/^[A-Z]$/)) { // if the keypress is one of the allowed characters, then
+                guessesLeft = guessesLeft - 1; // decrement the guess counter 
+                badGuess.push(keyPressed); // add entry to badGuess
+            }
             console.log("Bad Guess");
         }
         // loop through the array one last time; if no second dimension values are set to "_", then you've won the game
@@ -143,10 +154,12 @@ document.onkeyup = function(event) {
         console.log("Game over. You lost.");
         losses = losses + 1;
         lastAnswer = answer;
+        document.getElementById("wrongAnswer").innerHTML = answer;
         // document.getElementById("botName").innerHTML = answer;
         newRound(); // reset for the next round
         updateStats();
-        alert("Sorry, you guessed too many incorrect letters. The answer was \"" + lastAnswer + "\".");
+        $("#loserModal").modal();
+        // alert("Sorry, you guessed too many incorrect letters. The answer was \"" + lastAnswer + "\".");
     }
     if(gameWon === true) { // logic to end the game if you get them all right
         console.log("You won! Great job!");
@@ -157,11 +170,17 @@ document.onkeyup = function(event) {
         // document.getElementById("botFaction").innerHTML = 
         document.getElementById("botImage").innerHTML = "<img src=\"" + transformers[ranNum][2] + "\" class=\"img-fluid\">";
         document.getElementById("botQuote").innerHTML = "\"" + transformers[ranNum][1] + "\"";
+        document.getElementById("rightAnswer").innerHTML = answer;
         newRound(); // reset for the next round
         updateStats(); 
-        alert("Congrats! You correctly guessed \"" + lastAnswer +"\"!");
+        console.log( ($("#winnerModal").data('bs.modal') || {})._isShown ) // I swiped this from https://stackoverflow.com/questions/19506672/how-to-check-if-bootstrap-modal-is-open-so-i-can-use-jquery-validate and don't quite understand how it works with the || operator
+        $("#winnerModal").modal();
+        console.log( ($("#winnerModal").data('bs.modal') || {})._isShown )
+        // alert("Congrats! You correctly guessed \"" + lastAnswer +"\"!");
     }
 
 } // close event watching
+
+// } // close check to see if modal is live
 
 } // close onload
