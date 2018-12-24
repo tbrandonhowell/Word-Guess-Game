@@ -27,7 +27,7 @@
                 </div>
                 <div class="modal-body">
                     <h4>Let's kick some Decepticon butt!</h4>
-                    <img class="img-fluid" src="https://longboxingwhileblack.files.wordpress.com/2015/09/tumblr_mah2guop3p1rz39gwo1_500.jpg">
+                    <img class="img-fluid" src="assets/images/game_correct.jpg">
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeButton">Close</button>
@@ -38,31 +38,29 @@
 
         <!-- Loser Modal -->
         <div class="modal fade" id="loserModal" tabindex="-1" role="dialog" aria-labelledby="loserModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="loserModalLabel">Sorry, the right answer was &quot;<span id="wrongAnswer"></span>&quot;</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-                        <h4>Hey - is your name Michael Bay? Because your Transformers ignorance just ruined my childhood all over again.</h4>
-                        <img class="img-fluid" src="https://i.imgflip.com/2h6ev6.jpg">
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeButton">Close</button>
-                    </div>
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="loserModalLabel">Sorry, the right answer was &quot;<span id="wrongAnswer"></span>&quot;</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
                 </div>
+                <div class="modal-body">
+                    <h4>Hey - is your name Michael Bay? Because your Transformers ignorance just ruined my childhood all over again.</h4>
+                    <img class="img-fluid" src="assets/images/game_wrong.jpg">
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeButton">Close</button>
                 </div>
             </div>
-
+            </div>
+        </div>
 
         <div id="mainDiv" class="container-fluid">
 
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <!-- <img src="assets/images/tf-logo-2.jpg" class="mx-auto" style="max-width:400px;"> -->
                     <h1><span id="subheading1">Hangbot:</span> <span id="subheading2">1986</span></h1>
                 </div>
             </div>
@@ -72,7 +70,6 @@
                 <div class="col-md-3 border p-4 mb-3"> <!-- Last Wins Content -->
                     <h3 class="">Your Last Win:</h3>
                     <h4><span id="botName"></span></h4>
-                    <!-- <p>Faction: <span id="botFaction"></span></p> -->
                     <p><span id="botQuote"></span></p>
                     <span id="botImage"></span>
                 </div>
